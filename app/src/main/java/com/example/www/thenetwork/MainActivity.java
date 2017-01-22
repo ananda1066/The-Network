@@ -232,10 +232,10 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
             findViewById(R.id.icon).setVisibility(View.GONE);
             findViewById(R.id.title).setVisibility(View.GONE);
             mStatusTextView.setTextColor(Color.BLACK);
-            /*Intent i = new Intent();
-            i.setClass(MainActivity.this, Projects.class);
+            Intent i = new Intent();
+            i.setClass(MainActivity.this, ProjectActivity.class);
             startActivity(i);
-            overridePendingTransition(R.anim.rightin, R.anim.leftout);*/
+            overridePendingTransition(R.anim.rightin, R.anim.leftout);
         } else {
 
             mStatusTextView.setTextColor(Color.WHITE);
