@@ -78,6 +78,8 @@
         android:paddingRight="16dp"
        android:paddingBottom="5dp"
         android:visibility="gone"
+       android:layout_alignParentRight="true"
+       android:layout_alignParentEnd="true"
         tools:visibility="visible">
 
 
