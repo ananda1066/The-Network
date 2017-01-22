@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
         // Button listeners
         findViewById(R.id.sign_in_button).setOnClickListener(this);
         findViewById(R.id.sign_out_button).setOnClickListener(this);
-        findViewById(R.id.disconnect_button).setOnClickListener(this);
+        //findViewById(R.id.disconnect_button).setOnClickListener(this);
 
         // Configure sign-in to request the user's ID, email address, and basic
         // profile. ID and basic profile are included in DEFAULT_SIGN_IN.
@@ -122,9 +122,10 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
             case R.id.sign_out_button:
                 signOut();
                 break;
-            case R.id.disconnect_button:
+            /*case R.id.disconnect_button:
                 revokeAccess();
                 break;
+            */
         }
     }
 
@@ -209,7 +210,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
     }
     // [END signOut]
 
-    // [START revokeAccess]
+    /*// [START revokeAccess]
     private void revokeAccess() {
         Auth.GoogleSignInApi.revokeAccess(mGoogleApiClient).setResultCallback(
                 new ResultCallback<Status>() {
@@ -222,13 +223,19 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
 });
         }
 // [END revokeAccess]
-
+*/
 
     private void updateUI(boolean signedIn) {
         if (signedIn) {
             findViewById(R.id.sign_in_button).setVisibility(View.GONE);
             findViewById(R.id.sign_out_and_disconnect).setVisibility(View.VISIBLE);
+            findViewById(R.id.icon).setVisibility(View.GONE);
+            findViewById(R.id.title).setVisibility(View.GONE);
             mStatusTextView.setTextColor(Color.BLACK);
+            /*Intent i = new Intent();
+            i.setClass(MainActivity.this, Projects.class);
+            startActivity(i);
+            overridePendingTransition(R.anim.rightin, R.anim.leftout);*/
         } else {
 
             mStatusTextView.setTextColor(Color.WHITE);
@@ -236,6 +243,8 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
 
             findViewById(R.id.sign_in_button).setVisibility(View.VISIBLE);
             findViewById(R.id.sign_out_and_disconnect).setVisibility(View.GONE);
+            findViewById(R.id.icon).setVisibility(View.VISIBLE);
+            findViewById(R.id.title).setVisibility(View.VISIBLE);
         }
     }
 
