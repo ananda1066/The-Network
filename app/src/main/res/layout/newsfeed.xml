@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Acid Base Redox Reactions"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:layout_marginTop="15dp"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/project1"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/project1"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="20dp"
+        android:text="Experiment to test pH level with given volume of base. We need more people to have data statistically significant. Require chemists."
+        android:id="@+id/description1"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/description1"
+        android:id="@+id/tags1"
+        android:layout_centerHorizontal="true"
+        android:textStyle="italic"
+        android:typeface="serif"
+        android:textSize="12sp"
+        android:text="Need Chemists"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Game for Android"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginTop="50dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/tags1"
+        android:id="@+id/project2"/>
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/planet"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="40dp"
+        android:layout_below="@id/tags1"
+        android:layout_toLeftOf="@id/project2"
+        android:layout_toStartOf="@id/project2"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/project2"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="20dp"
+        android:text="I want to try to create a game for android. It will be a strategy game where the player will have to manage the NASA in order to arrive to other planets and explore the space. I have experience in Java but not for mobile app."
+        android:id="@+id/description2"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/description2"
+        android:id="@+id/tags2"
+        android:layout_centerHorizontal="true"
+        android:textStyle="italic"
+        android:typeface="serif"
+        android:textSize="12sp"
+        android:text="Need mobile app developer"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Music Programming"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginTop="50dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/tags2"
+        android:id="@+id/project3"/>
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/note"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="40dp"
+        android:layout_below="@id/tags2"
+        android:layout_toLeftOf="@id/project3"
+        android:layout_toStartOf="@id/project3"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/project3"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="20dp"
+        android:text="We are going to create an algorithm capable of writing music. It is based on deep learning and analysis of music files. We need someone capable of interfacing with the audio in an effective way."
+        android:id="@+id/description3"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/description3"
+        android:id="@+id/tags3"
+        android:layout_centerHorizontal="true"
+        android:textStyle="italic"
+        android:typeface="serif"
+        android:textSize="12sp"
+        android:text="Need audio technician or audio engineer"/>
+
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/titration"
+        android:layout_alignTop="@+id/project1"
+        android:layout_toLeftOf="@+id/project1"
+        android:layout_toStartOf="@+id/project1" />
+
+
+</RelativeLayout>
+</ScrollView>

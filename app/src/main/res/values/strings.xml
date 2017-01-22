@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">The Network</string>
+    <string name="app_name">Project Scope</string>
 
     <string name="signed_in_fmt">Signed in as: %s</string>
     <string name="signed_in">Signed in</string>
@@ -8,7 +8,8 @@
     <string name="loading">Loading…</string>
     <string name="sign_out">Sign Out</string>
     <string name="disconnect">Disconnect</string>
-    <string name="title_activity_project">ProjectActivity</string>
+    <string name="title_activity_project">Project Scope</string>
+    <string name="name">Alisha</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>

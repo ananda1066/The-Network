@@ -3,12 +3,9 @@ package com.example.www.thenetwork;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
-import android.content.pm.PackageInstaller;
-import android.content.pm.PackageInstaller.Session;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
 import android.graphics.Color;
-import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -16,7 +13,6 @@ import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -28,21 +24,11 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.OptionalPendingResult;
 import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthCredential;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.auth.GoogleAuthProvider;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.Arrays;
 
-import static android.R.attr.password;
-
-public class MainActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener, View.OnClickListener{
+public class MainActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener, View.OnClickListener {
 
     private GoogleApiClient mGoogleApiClient;
     private TextView username;
@@ -51,6 +37,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
     private TextView mStatusTextView;
     private ProgressDialog mProgressDialog;
     private TextView info;
+    public static boolean notReturned;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,7 +47,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
         username = (TextView) findViewById(R.id.username);
 
 
-
+        notReturned = true;
         // Views
         mStatusTextView = (TextView) findViewById(R.id.status);
 
@@ -104,8 +91,6 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
     }
 
 
-
-
     @Override
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
         // An unresolvable error has occurred and Google APIs (including Sign-In) will not
@@ -130,7 +115,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
     }
 
     @Override
-    public void onSaveInstanceState(Bundle savedState){
+    public void onSaveInstanceState(Bundle savedState) {
         super.onSaveInstanceState(savedState);
 
     }
@@ -156,10 +141,9 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
         if (result.isSuccess()) {
             // Signed in successfully, show authenticated UI.
             GoogleSignInAccount acct = result.getSignInAccount();
-            if(acct.getDisplayName() != null){
+            if (acct.getDisplayName() != null) {
                 mStatusTextView.setText(getString(R.string.signed_in_fmt, acct.getDisplayName()));
-            }
-            else{
+            } else {
                 mStatusTextView.setText(getString(R.string.signed_in));
             }
             updateUI(true);
@@ -226,18 +210,21 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
 */
 
     private void updateUI(boolean signedIn) {
-        if (signedIn) {
+       /* Intent intent = this.getIntent();
+        String strdata = "";
+        if(intent != null){
+            strdata = intent.getExtras().getString("Back");*/
+        if (signedIn/*&& !(strdata.equals("From fragment"))*/) {
             findViewById(R.id.sign_in_button).setVisibility(View.GONE);
             findViewById(R.id.sign_out_and_disconnect).setVisibility(View.VISIBLE);
             findViewById(R.id.icon).setVisibility(View.GONE);
             findViewById(R.id.title).setVisibility(View.GONE);
             mStatusTextView.setTextColor(Color.BLACK);
             Intent i = new Intent();
-            i.setClass(MainActivity.this, ProjectActivity.class);
+            i.setClass(MainActivity.this, TheNetwork.class);
             startActivity(i);
             overridePendingTransition(R.anim.rightin, R.anim.leftout);
         } else {
-
             mStatusTextView.setTextColor(Color.WHITE);
             mStatusTextView.setText(R.string.signed_out);
 
@@ -247,6 +234,29 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
             findViewById(R.id.title).setVisibility(View.VISIBLE);
         }
     }
+       /* else{
+            if (signedIn && !(strdata.equals("From fragment"))) {
+                findViewById(R.id.sign_in_button).setVisibility(View.GONE);
+                findViewById(R.id.sign_out_and_disconnect).setVisibility(View.VISIBLE);
+                findViewById(R.id.icon).setVisibility(View.GONE);
+                findViewById(R.id.title).setVisibility(View.GONE);
+                mStatusTextView.setTextColor(Color.BLACK);
+                Intent i = new Intent();
+                i.setClass(MainActivity.this, TheNetwork.class);
+                startActivity(i);
+                overridePendingTransition(R.anim.rightin, R.anim.leftout);
+            } else {
+                mStatusTextView.setTextColor(Color.WHITE);
+                mStatusTextView.setText(R.string.signed_out);
+
+                findViewById(R.id.sign_in_button).setVisibility(View.VISIBLE);
+                findViewById(R.id.sign_out_and_disconnect).setVisibility(View.GONE);
+                findViewById(R.id.icon).setVisibility(View.VISIBLE);
+                findViewById(R.id.title).setVisibility(View.VISIBLE);
+            }*/
+
+
+
 
     private void showProgressDialog() {
         if (mProgressDialog == null) {
